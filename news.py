@@ -12,7 +12,7 @@ authToken = os.getenv("AUTH_TOKEN")
 url = "https://cryptopanic.com"
 
 # Define the endpoint with the auth token
-endpoint = f"/api/free/v1/posts/?auth_token={authToken}"
+endpoint = f"/api/free/v1/posts/?auth_token={authToken}&currencies=BTC&filter=rising"
 
 # Make the GET request
 response = requests.get(url + endpoint)
