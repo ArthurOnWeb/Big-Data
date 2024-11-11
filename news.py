@@ -1,9 +1,12 @@
 import requests
 import os
+from dotenv import load_dotenv
 
-# Get the auth token directly from the environment variables
+# Load environment variables from .env file
+load_dotenv()
+
+# Get the auth token from the environment variable
 authToken = os.getenv("AUTH_TOKEN")
-print(authToken)
 
 # Define the base URL of the API endpoint
 url = "https://cryptopanic.com"
