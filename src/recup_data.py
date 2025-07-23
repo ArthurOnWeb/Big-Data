@@ -3,6 +3,7 @@ from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
 import json
+from pathlib import Path
 from pymongo.mongo_client import MongoClient
 
 # Load environment variables from .env file
@@ -23,8 +24,9 @@ client = MongoClient(uri)
 db = client["bitcoin-data"]
 collection = db["news"]
 
-# Insert a json file by read data.json
-with open('data.json') as f:
+# Insert a json file by reading data/data.json
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+with open(DATA_DIR / "data.json") as f:
     data = json.load(f)
 
 insert = collection.insert_one(data)
