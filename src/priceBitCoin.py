@@ -2,6 +2,7 @@ import requests
 import time
 import csv
 from datetime import datetime
+from pathlib import Path
 import pandas as pd
 
 # Endpoint Binance pour les informations de la paire BTC/USDT
@@ -10,7 +11,8 @@ url_binance = "https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT"
 url_blockchain = "https://api.blockchain.info/charts/hash-rate?timespan=30days&format=json"
 
 # Nom du fichier CSV pour sauvegarder les données
-csv_file = "bitcoin_prices_volume_rsi_ma50_hashrate.csv"
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+csv_file = DATA_DIR / "bitcoin_prices_volume_rsi_ma50_hashrate.csv"
 
 # Périodes pour le calcul des indicateurs
 RSI_PERIOD = 14

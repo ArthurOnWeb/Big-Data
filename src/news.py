@@ -2,6 +2,7 @@ import requests
 import os
 from dotenv import load_dotenv
 import json
+from pathlib import Path
 
 # Load environment variables from .env file
 load_dotenv()
@@ -30,7 +31,8 @@ else:
 # convert to json
 data = response.json()
 #save to file
-with open('data.json', 'w') as f:
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+with open(DATA_DIR / "data.json", "w") as f:
     json.dump(data, f)
 
 

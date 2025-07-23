@@ -1,5 +1,6 @@
 import json
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 from pymongo import MongoClient
 
@@ -27,7 +28,8 @@ db = client["bitcoin-data"]  # Nom de la base de données
 collection = db["bitcoin-batch"]  # Nom de la collection
 
 # Chemin du fichier JSON à lire (ligne par ligne)
-file_path = "processData.json"
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+file_path = DATA_DIR / "processData.json"
 
 # Lire et insérer chaque ligne du fichier JSON
 # Lire et insérer chaque ligne du fichier JSON
