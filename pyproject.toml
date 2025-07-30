@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "big-data"
+version = "0.1.0"
+description = "Utilities for collecting and analysing Bitcoin data"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{name = "Big Data Contributors"}]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+py-modules = ["batchStorage", "news", "priceBitCoin", "realTimeBTCUSDPrice", "recup_data", "ingestion"]
+
+[project.optional-dependencies]
+test = ["pytest"]
